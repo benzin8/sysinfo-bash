@@ -5,14 +5,14 @@ then echo "Connection Successful"
 else echo "Connection Error"
 fi
 
-echo "===SystemInfo==="
-echo -e "Hostname: $(hostname)"
-echo -e "OS: $(grep PRETTY_NAME /etc/os-release | cut -d '"' -f 2)"
+echo "\n===SystemInfo==="
+echo "Hostname: $(hostname)"
+echo "OS: $(grep PRETTY_NAME /etc/os-release | cut -d '"' -f 2)"
 
-echo "===NetInfo==="
+echo -e "\n===NetInfo==="
 echo "Internal IP: $(hostname -I | awk '{print $1}')"
 external_ip=$(curl -s ifconfig.me)
-if [ -n "$exteranl_ip"];
+if [ -n "$external_ip" ];
 then 
 	echo "External IP: ${external_ip}"
 else
